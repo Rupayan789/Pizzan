@@ -24,6 +24,17 @@ nav li a{
 .size{
     background-color: $secondary;
 }
+.btn-primary{
+    background-color: $primary;
+    color:$pure;
+    transition: $smooth;
+    border:2px solid $pure;
+    &:hover{
+        background-color: $pure;
+        color:$primary;
+        border-color: $primary;
+    }
+}
 .addToCart{
     border:2px solid $primary;
     color:$primary;
@@ -33,5 +44,23 @@ nav li a{
         background-color: $primary;
         border-color: $pure;
         color:$pure;
+    }
+}
+.cart{
+    background-color: $secondary;
+
+    .amount{
+        color:$primary;
+
+    }
+}
+section.login{
+    background-color: $secondary;
+    min-height:calc(100vh - 86px);
+    a{
+        color:$primary;
+        &:hover{
+            color:$primary-hover;
+        }
     }
 }

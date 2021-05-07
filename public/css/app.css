@@ -26,6 +26,18 @@ nav li a:hover {
   background-color: #F8F8F8;
 }
 
+.btn-primary {
+  background-color: #FE5F1E;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid #fff;
+}
+.btn-primary:hover {
+  background-color: #fff;
+  color: #FE5F1E;
+  border-color: #FE5F1E;
+}
+
 .addToCart {
   border: 2px solid #FE5F1E;
   color: #FE5F1E;
@@ -35,4 +47,22 @@ nav li a:hover {
   background-color: #FE5F1E;
   border-color: #fff;
   color: #fff;
+}
+
+.cart {
+  background-color: #F8F8F8;
+}
+.cart .amount {
+  color: #FE5F1E;
+}
+
+section.login {
+  background-color: #F8F8F8;
+  min-height: calc(100vh - 86px);
+}
+section.login a {
+  color: #FE5F1E;
+}
+section.login a:hover {
+  color: #b23301;
 }
