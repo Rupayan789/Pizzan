@@ -304,6 +304,10 @@ nav {
     width: 70px;
     height: 35px;
   }
+
+  .pizzan {
+    width: 70px;
+  }
 }
 #logout span {
   cursor: pointer;
@@ -541,7 +545,7 @@ footer {
     height: 100vh;
     width: 45vw;
     z-index: 3;
-    background-color: #151515;
+    background-color: #194350;
     transform: translateX(110%);
     transition: transform 0.3s ease-in-out;
   }
@@ -552,7 +556,7 @@ footer {
     margin-right: auto;
   }
   .items ul li:nth-child(1) {
-    margin-top: 85px;
+    margin-top: 73px;
   }
   .items ul li {
     padding: 10px 10px 10px 10px;

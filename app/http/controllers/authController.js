@@ -80,6 +80,7 @@ const AuthController=()=>{
         },
         logout:(req,res)=>{
             req.logout();
+            delete req.session.cart;
             return res.redirect('/login');
         }
     }
