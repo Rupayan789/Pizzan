@@ -3,7 +3,7 @@ const Menu=require('../../model/menu')
 function HomeController(){
     //Factory function
     return {
-        index : (req,res)=>{
+        index :(req,res)=>{
             Menu.find().then((pizzas)=>{
                 res.render('home',{pizzas:pizzas})
             })

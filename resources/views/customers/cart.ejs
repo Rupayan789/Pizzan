@@ -1,4 +1,4 @@
-<section class="cart">
+<section class="cart container md:px-12 px-5 mx-auto">
     <% if(!session.cart){ %>
     <div class="empty-cart py-16">
     <div class="container mx-auto text-center px-20">
@@ -12,7 +12,7 @@
 
 </div>
 <% }else{ %>
-    <div class="container order mx-auto w-1/2 py-16">
+    <div class=" order mx-auto w-full xl:w-1/2 py-16">
         <div class="flex items-center border-b border-gray-300 pb-4">
             <img src="/img/cart-black.png" alt="cart-black">
             <h1 class="font-bold ml-4 text-2xl">Order Summary</h1>
@@ -20,7 +20,7 @@
         <div class="pizza-list">
             <% for(let pizza of Object.values(session.cart.items)){ %>
 
-                <div class="flex items-center my-8">
+                <div class="flex items-center w-full my-8">
                 <img class="w-24" src="/img/pizza.png" alt="">
                 <div class="flex-1 ml-4">
                         <h1><%= pizza.item.name %></h1>
@@ -40,17 +40,20 @@
                     <span class="font-bold text-lg">Total Amount: </span>
                     <span class="amount text-2xl font-bold ml-2">$<%= session.cart.totalPrice %></span>
                 </div>
+                <%  if(user){ %>
                  <div>
-                    <form action="" class="mt-12 ml-auto">
-                        <input class="border border-gray-400 p-2 w-1/2 mb-4" placeholder="Phone Number" type="text">
-                        <input class="border border-gray-400 p-2 w-1/2" placeholder="Address" type="text">
+                    <form action="/order" method="POST" class="mt-12 ml-auto">
+                        <input class="border border-gray-400 p-2 w-1/2 mb-4" name="phone" placeholder="Phone Number" type="text">
+                        <input class="border border-gray-400 p-2 w-1/2" name="address" placeholder="Address" type="text">
                         <div>
-                            <button class="btn-primary px-6 py-2 mt-6 rounded-full">Order Now</button>
+                            <button type="submit" class="btn-primary px-6 py-2 mt-6 rounded-full">Order Now</button>
                         </div>
                     </form>
             </div>
+            <% }else{ %>
             <a href="/login" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full font-bold mt-8">Login to continue</a>
-            </div>
+            <% } %>
+        </div>
            
         </div>
     </div>

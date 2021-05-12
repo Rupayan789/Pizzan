@@ -11,12 +11,14 @@
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "hot": "mix watch --hot",
     "prod": "npm run production",
-    "production": "mix --production"
+    "production": "mix --production",
+    "start":"nodemon server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
     "connect-mongo": "^4.4.1",
     "connect-mongodb-session": "^2.4.1",
     "dotenv": "^9.0.0",
@@ -25,8 +27,12 @@
     "express-ejs-layouts": "^2.5.0",
     "express-flash": "0.0.2",
     "express-session": "^1.17.1",
+    "moment": "^2.29.1",
     "mongoose": "^5.12.7",
-    "noty": "^3.2.0-beta-deprecated"
+    "noty": "^3.2.0-beta-deprecated",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.1.0"
   },
   "devDependencies": {
     "laravel-mix": "^6.0.18",

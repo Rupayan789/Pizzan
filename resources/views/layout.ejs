@@ -10,28 +10,51 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lato:ital,wght@0,400;1,100&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="/css/app.css">
     
 </head>
 <body>
-    <nav class="container px-20 py-4 mx-auto flex items-center justify-between">
+    <nav class="md:px-20 px-5 py-4 mx-auto flex items-center justify-between">
         <div >
-            <img src="/img/logo.png" alt="logo"/>
+            <a href="/"><img src="/img/logo.png" alt="logo"/></a>
+            
         </div>
-            <div>
-                <ul class="flex items-center">
-                    <li class="ml-6"><a href="#">Menu</a></li>
-                    <li class="ml-6"><a href="#">Offers</a></li>
-                    <li class="ml-6"><a href="/register">Register</a></li>
-                    <li class="ml-6"><a href="/login">Login</a></li>
-                    <li class="ml-6"><a class="flex justify-between px-4 py-2 rounded-full" href="/cart">
+        <div class="ml-auto cartLogo rounded-full">
+                        <a class="flex justify-between px-4 py-2 rounded-full" href="/cart">
                         <span id="card-counter" class="text-white font-bold"><%= session.cart?session.cart.totalQty:0 %></span>
-                        <img class="inline-block " src="/img/cart.png" alt="cart-icon"></a></li>
+                        <img class="inline-block " src="/img/cart.png" alt="cart-icon"></a>
+        </div>
+            <div class="items">
+                <ul class="flex md:items-center">
+                    <li class="md:ml-6"><a href="/">Menu</a></li>
+                    <% if(user) { %>
+                        <li class="md:ml-6">
+                        <form id="logout" action="/logout" method="POST">
+                            <span onclick="document.getElementById('logout').submit()">Logout</span>
+                        </form>
+                    </li>
+                    <% }else{ %>   
+                    
+                    <li class="md:ml-6"><a href="/register">Register</a></li>
+                    <li class="md:ml-6"><a href="/login">Login</a></li>
+                    <% } %>
+                    <!-- s -->
                 </ul>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         
     </nav>
     <%- body %>
+    <footer class="mx-auto px-12">
+
+    </footer>
+    <script src="https://kit.fontawesome.com/ccbcd35d74.js" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/js/app.js"></script>
 </body>
 </html>

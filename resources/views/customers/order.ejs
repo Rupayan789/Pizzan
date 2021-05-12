@@ -1,0 +1,79 @@
+<section class="order container mx-auto px-20 py-10 mt-6">
+    <div>
+        <h1 class="text-lg font-bold mb-5">
+            All Orders
+        </h1>
+        <% if(messages.success) { %>
+        <p id="success-alert" role="alert"  class="flex items-center text-white font-bold bg-green-400 px-4 py-4 rounded-full">All orders placed successfully</p>
+        <% } %>
+    </div>
+    <div>
+        <div class="flex flex-col mt-2">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <% if(orders.length){ %>
+                    <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                              <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                  Order
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Phone
+                                  </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                  Address
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                  Time
+                                </th>
+                            
+                              </tr>
+                            </thead>
+                           
+                            <tbody class="bg-white divide-y divide-gray-200">
+                   
+                    <% orders.forEach(order => { if(order.status!=='completed'){%>
+                        
+                              <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                  <div class="flex items-center">
+                        
+                                      <div class="text-sm font-medium text-gray-900 bg-yellow-200 px-5 py-2 rounded-md">
+                                        <a href="/customer/order/<%= order._id%>"><%= order._id %></a>
+                                        
+                                      </div>
+        
+            
+                                  </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900"><%= order.phone %></div>
+              
+                                  </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                  <div class="text-sm text-gray-900"><%= order.address %></div>
+            
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    <%= moment(order.createdAt).format('hh:mm A') %>
+                                  </span>
+                                </td>
+                                
+                              </tr>   
+                                            
+                              <!-- More people... -->
+                    <%       }}); %>
+                            </tbody>
+                          </table>
+                       <%  }else{ %>
+                        <div class="text-3xl bg-gray-400 px-10 py-10 rounded full font-bold text-red-400 "><h1>No Order Placed</h1></div>
+                        <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</section>
